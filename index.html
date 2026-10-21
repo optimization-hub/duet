@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Duet Game – Get the Game</title>
+<meta name="description" content="Steer two orbiting spheres through every obstacle. Get Duet Game now.">
+<meta property="og:title" content="Duet Game – Get the Game">
+<meta property="og:description" content="Steer two orbiting spheres through every obstacle. Get Duet Game now.">
+<!-- <meta property="og:image" content="https://YOUR-USERNAME.github.io/REPO/og.jpg"> -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&family=Unbounded:wght@700;900&display=swap" rel="stylesheet">
+
+<!-- ======================================================================
+  ADSTERRA (ADS TERRA) #1 — HEAD / TOP SCRIPT
+  Paste scripts here that Adsterra says to put in <head>
+  (e.g. Popunder, Social Bar). Delete this comment when done.
+====================================================================== -->
+
+<style>
+:root{
+  --night:#0c0a26; --deep:#161343; --cyan:#3be8ff; --coral:#ff5a6e;
+  --ice:#f3f1ff; --mute:#a9a6d6; --line:rgba(255,255,255,.12);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--night);color:var(--ice);font:400 17px/1.6 Manrope,system-ui,sans-serif;
+  padding-bottom:calc(84px + env(safe-area-inset-bottom,0px));-webkit-font-smoothing:antialiased}
+a{color:inherit}
+h1,h2,h3{font-family:Unbounded,Manrope,sans-serif;line-height:1.1;letter-spacing:-.02em}
+.wrap{width:min(1080px,100% - 40px);margin-inline:auto}
+:focus-visible{outline:3px solid var(--cyan);outline-offset:3px}
+
+/* HERO */
+.hero{position:relative;min-height:100svh;display:grid;place-items:center;overflow:hidden;
+  padding:calc(40px + env(safe-area-inset-top,0px)) 0 60px;isolation:isolate}
+#stage,.hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
+.hero::after{content:"";position:absolute;inset:0;z-index:-1;
+  background:radial-gradient(ellipse at 50% 35%,rgba(12,10,38,.15),rgba(12,10,38,.85) 75%)}
+.hero .wrap{text-align:center;max-width:720px}
+.hero h1{font-size:clamp(2.4rem,9vw,5rem);font-weight:900}
+.hero h1 .c{color:var(--cyan)} .hero h1 .r{color:var(--coral)}
+.hero p{margin:22px auto 34px;max-width:46ch;font-size:1.15rem;color:#d9d6ff}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;border:0;cursor:pointer;
+  font:800 1.1rem Manrope,sans-serif;color:#0c0a26;padding:18px 38px;border-radius:999px;
+  background:linear-gradient(90deg,var(--cyan),#8cf3ff 45%,#ff8d9b);
+  box-shadow:0 10px 40px -8px rgba(59,232,255,.6);transition:transform .15s,box-shadow .15s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 14px 48px -6px rgba(255,90,110,.6)}
+.btn:active{transform:scale(.97)}
+.btn.pulse{animation:pulse 2.4s ease-in-out infinite}
+@keyframes pulse{50%{box-shadow:0 10px 60px 4px rgba(255,90,110,.65)}}
+.fine{margin-top:16px;font-size:.85rem;color:var(--mute)}
+.badges{display:flex;justify-content:center;flex-wrap:wrap;gap:10px 22px;margin-top:26px;font-size:.92rem;color:#d9d6ff}
+.badges span::before{content:"✓ ";color:var(--cyan);font-weight:800}
+
+/* SECTIONS */
+section.s{padding:84px 0}
+section.s h2{font-size:clamp(1.7rem,5vw,2.6rem);margin-bottom:14px;max-width:18ch}
+.lead{color:var(--mute);max-width:52ch;margin-bottom:44px}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--line);border-radius:20px;overflow:hidden}
+.step{padding:30px 26px;background:var(--deep)}
+.step+.step{border-left:1px solid var(--line)}
+.step b{display:block;font:900 2.4rem Unbounded;color:var(--cyan)}
+.step:nth-child(2) b{color:var(--coral)}
+.step h3{font-size:1.1rem;margin:10px 0 8px}
+.step p{color:var(--mute);font-size:.98rem}
+
+.feat{display:block;max-width:720px}
+.feat ul{list-style:none;display:grid;gap:22px}
+.feat li strong{display:block;font-size:1.08rem}
+.feat li span{color:var(--mute)}
+
+
+.final{text-align:center;padding:96px 0 70px;background:linear-gradient(180deg,var(--night),#1b1752)}
+.final h2{margin-inline:auto;max-width:16ch}
+.final p{color:var(--mute);margin:14px auto 32px}
+
+/* ad slots (invisible until you add code) */
+.ad{margin:0 auto;text-align:center;min-height:0}
+
+footer{padding:34px 0;color:var(--mute);font-size:.82rem;text-align:center;border-top:1px solid var(--line)}
+footer a{margin:0 8px}
+
+/* sticky mobile bar */
+.bar{position:fixed;left:0;right:0;bottom:0;z-index:50;display:none;padding:12px 16px calc(12px + env(safe-area-inset-bottom,0px));
+  background:rgba(12,10,38,.92);backdrop-filter:blur(12px);border-top:1px solid var(--line)}
+.bar .btn{width:100%;padding:16px}
+@media (max-width:760px){
+  .bar{display:block}
+  .steps,.shots,  .step+.step{border-left:0;border-top:1px solid var(--line)}
+  .feat{grid-template-columns:1fr;gap:32px}
+  section.s{padding:60px 0}
+}
+@media (min-width:761px){body{padding-bottom:0}}
+@media (prefers-reduced-motion:reduce){.btn.pulse{animation:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<!-- ============================ HERO ============================ -->
+<header class="hero">
+  <canvas id="stage" aria-hidden="true"></canvas>
+
+  <!-- VIDEO BACKGROUND (optional): upload bg.mp4 (YOUR OWN or licensed footage, under ~5 MB, muted loop) to your repo,
+       then delete the <canvas> above and un-comment this block.
+  <video autoplay muted loop playsinline poster="bg.jpg"><source src="bg.mp4" type="video/mp4"></video>
+  -->
+
+  <div class="wrap">
+    <h1>Two orbs. <span class="c">One</span> <span class="r">rhythm.</span></h1>
+    <p>Rotate a pair of orbiting spheres through walls, slaloms and spinning blocks. One slip and you start over.</p>
+
+    <!-- ===== DOWNLOAD BUTTON #1 (main) ===== -->
+    <button class="btn pulse js-download" type="button">Download now</button>
+    <div class="fine">Tap the button and follow the steps on the next page.</div>
+
+    <div class="badges">
+      <span>Award-winning indie game</span><span>One-touch controls</span><span>Hypnotic soundtrack</span>
+    </div>
+  </div>
+</header>
+
+<!-- ===== ADSTERRA #2 — BANNER SLOT (e.g. 728x90 desktop / 320x50 mobile) ===== -->
+<div class="ad" id="ad-top"><!-- PASTE ADSTERRA BANNER CODE HERE --></div>
+
+<main>
+<section class="s" id="how">
+  <div class="wrap">
+    <h2>Start playing in three steps</h2>
+    <p class="lead">Simple to start, hard to master.</p>
+    <div class="steps">
+      <div class="step"><b>1</b><h3>Tap download</h3><p>Hit the button and follow the steps on the next page.</p></div>
+      <div class="step"><b>2</b><h3>Open the game</h3><p>Start with the practice levels, then take on the real challenge.</p></div>
+      <div class="step"><b>3</b><h3>Slip through</h3><p>Rotate left and right to guide both spheres past every block.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="s" id="features">
+  <div class="wrap feat">
+    <div>
+      <h2>Easy to learn. Hard to put down.</h2>
+      <p class="lead">Simple rules, serious challenge.</p>
+      <ul>
+        <li><strong>Two orbs, one control</strong><span>Rotate the pair clockwise or anticlockwise. If either one hits a block, you restart.</span></li>
+        <li><strong>Levels that get tougher fast</strong><span>Static, moving and rotating blocks keep every level fresh.</span></li>
+        <li><strong>Quick rounds</strong><span>Play for two minutes in line or an hour on the couch.</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ADSTERRA #3 — NATIVE BANNER / 300x250 SLOT (mid-page, best earner) ===== -->
+<div class="ad" id="ad-mid"><!-- PASTE ADSTERRA NATIVE BANNER / 300x250 CODE HERE --></div>
+
+<section class="final">
+  <div class="wrap">
+    <h2>Ready for the challenge?</h2>
+    <p>Download now and start your first level.</p>
+    <!-- ===== DOWNLOAD BUTTON #2 (bottom) ===== -->
+    <button class="btn js-download" type="button">Download now</button>
+  </div>
+</section>
+</main>
+
+<!-- ===== ADSTERRA #4 — FOOTER BANNER SLOT ===== -->
+<div class="ad" id="ad-bottom"><!-- PASTE ADSTERRA BANNER CODE HERE --></div>
+
+<footer>
+  <div class="wrap">
+    <p>Not affiliated with or endorsed by the game's developers. All trademarks belong to their owners.</p>
+    <p style="margin-top:8px"><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="contact.html">Contact</a></p>
+  </div>
+</footer>
+
+<!-- ===== STICKY MOBILE DOWNLOAD BUTTON #3 ===== -->
+<div class="bar"><button class="btn js-download" type="button">Download now</button></div>
+
+<!-- ======================================================================
+  CONTENT LOCKER
+  1) Paste your locker's <script> code RIGHT HERE (the one your CPA network gave you).
+  2) Many lockers (CPAGrip, OGAds, etc.) expose a function to open the offer wall.
+     Put that function call inside openLocker() below.
+     Example CPAGrip:  call_locker();    Example generic:  window.location.href = "YOUR_LOCKER_URL";
+====================================================================== -->
+<!-- PASTE LOCKER SCRIPT HERE -->
+
+<script>
+function openLocker(){
+  // Your locker link is set below. Swap it if the network gives you a new one.
+  window.location.href = "https://doctoredits.com/getduetgame";
+}
+document.querySelectorAll('.js-download').forEach(function(b){ b.addEventListener('click', openLocker); });
+</script>
+
+<!-- ======================================================================
+  ADSTERRA #5 — BEFORE </body>
+  Paste Social Bar / Popunder / any script Adsterra says goes at the bottom.
+====================================================================== -->
+
+<script>
+/* Hero animation: two orbs orbit while bars fall. Respects reduced motion. */
+(function(){
+  var cv=document.getElementById('stage'); if(!cv) return;
+  var ctx=cv.getContext('2d'), W,H,dpr, still=matchMedia('(prefers-reduced-motion:reduce)').matches;
+  var bars=[], t=0, last=0;
+  function size(){dpr=Math.min(devicePixelRatio||1,2);W=cv.clientWidth;H=cv.clientHeight;cv.width=W*dpr;cv.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0)}
+  function spawn(){var w=Math.min(W*.28,160)*(.6+Math.random()*.8);bars.push({x:Math.random()*(W-w),y:-30,w:w,h:16,s:90+Math.random()*80,c:Math.random()<.5?'#3be8ff':'#ff5a6e'})}
+  function frame(ts){
+    var dt=Math.min((ts-last)/1000||0,.05); last=ts; t+=dt;
+    ctx.fillStyle='#0c0a26'; ctx.fillRect(0,0,W,H);
+    var g=ctx.createRadialGradient(W/2,H*.8,0,W/2,H*.8,H*.8); g.addColorStop(0,'#2a2370'); g.addColorStop(1,'#0c0a26');
+    ctx.fillStyle=g; ctx.fillRect(0,0,W,H);
+    if(!still && Math.random()<dt*1.6) spawn();
+    var cx=W/2, cy=H*.82, r=Math.min(W*.2,110), a=Math.sin(t*.9)*.9+t*.4;
+    ctx.globalAlpha=.9;
+    bars.forEach(function(b){b.y+=b.s*dt; ctx.fillStyle=b.c; ctx.shadowColor=b.c; ctx.shadowBlur=18;
+      ctx.beginPath(); ctx.roundRect?ctx.roundRect(b.x,b.y,b.w,b.h,8):ctx.rect(b.x,b.y,b.w,b.h); ctx.fill()});
+    bars=bars.filter(function(b){return b.y<H+40});
+    ctx.shadowBlur=0; ctx.globalAlpha=.25; ctx.strokeStyle='#fff'; ctx.lineWidth=1.5;
+    ctx.beginPath(); ctx.arc(cx,cy,r,0,7); ctx.stroke(); ctx.globalAlpha=1;
+    [[a,'#3be8ff'],[a+Math.PI,'#ff5a6e']].forEach(function(o){
+      var x=cx+Math.cos(o[0])*r, y=cy+Math.sin(o[0])*r;
+      ctx.shadowColor=o[1]; ctx.shadowBlur=30; ctx.fillStyle=o[1];
+      ctx.beginPath(); ctx.arc(x,y,13,0,7); ctx.fill()});
+    ctx.shadowBlur=0;
+    if(!still) requestAnimationFrame(frame);
+  }
+  size(); addEventListener('resize',size);
+  if(still){for(var i=0;i<6;i++){spawn();bars[i].y=Math.random()*H*.6}}
+  requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>
