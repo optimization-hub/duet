@@ -50,6 +50,10 @@ h1,h2,h3{font-family:Unbounded,Manrope,sans-serif;line-height:1.1;letter-spacing
 .btn:active{transform:scale(.97)}
 .btn.pulse{animation:pulse 2.4s ease-in-out infinite}
 @keyframes pulse{50%{box-shadow:0 10px 60px 4px rgba(255,90,110,.65)}}
+.hsteps{display:flex;justify-content:center;flex-wrap:wrap;gap:10px 12px;list-style:none;margin:0 0 30px}
+.hsteps li{display:flex;align-items:center;gap:10px;padding:8px 18px 8px 8px;border:1px solid var(--line);border-radius:999px;background:rgba(22,19,67,.7);font-weight:600;font-size:.95rem}
+.hsteps b{display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--cyan);color:#0c0a26;font:900 .85rem Unbounded}
+.hsteps li:nth-child(2) b{background:var(--coral)}
 .fine{margin-top:16px;font-size:.85rem;color:var(--mute)}
 .badges{display:flex;justify-content:center;flex-wrap:wrap;gap:10px 22px;margin-top:26px;font-size:.92rem;color:#d9d6ff}
 .badges span::before{content:"✓ ";color:var(--cyan);font-weight:800}
@@ -111,9 +115,11 @@ footer a{margin:0 8px}
     <h1>Two orbs. <span class="c">One</span> <span class="r">rhythm.</span></h1>
     <p>Rotate a pair of orbiting spheres through walls, slaloms and spinning blocks. One slip and you start over.</p>
 
+    <ol class="hsteps"><li><b>1</b>Complete 1 offer</li><li><b>2</b>Download the app</li><li><b>3</b>Enjoy</li></ol>
+
     <!-- ===== DOWNLOAD BUTTON #1 (main) ===== -->
-    <button class="btn pulse js-download" type="button">Download now</button>
-    <div class="fine">Tap the button and follow the steps on the next page.</div>
+    <button class="btn pulse js-download" type="button">Complete 1 offer to download</button>
+    <div class="fine">You'll complete one quick offer on the next page, then your download unlocks.</div>
 
     <div class="badges">
       <span>Award-winning indie game</span><span>One-touch controls</span><span>Hypnotic soundtrack</span>
@@ -130,9 +136,9 @@ footer a{margin:0 8px}
     <h2>Start playing in three steps</h2>
     <p class="lead">Simple to start, hard to master.</p>
     <div class="steps">
-      <div class="step"><b>1</b><h3>Tap download</h3><p>Hit the button and follow the steps on the next page.</p></div>
-      <div class="step"><b>2</b><h3>Open the game</h3><p>Start with the practice levels, then take on the real challenge.</p></div>
-      <div class="step"><b>3</b><h3>Slip through</h3><p>Rotate left and right to guide both spheres past every block.</p></div>
+      <div class="step"><b>1</b><h3>Complete one offer</h3><p>Tap the button and finish one quick offer on the next page.</p></div>
+      <div class="step"><b>2</b><h3>Download the app</h3><p>Your download unlocks once the offer is verified.</p></div>
+      <div class="step"><b>3</b><h3>Enjoy</h3><p>Open Duet and rotate both spheres past your first blocks.</p></div>
     </div>
   </div>
 </section>
@@ -157,9 +163,9 @@ footer a{margin:0 8px}
 <section class="final">
   <div class="wrap">
     <h2>Ready for the challenge?</h2>
-    <p>Download now and start your first level.</p>
+    <p>Complete 1 offer to download and start your first level.</p>
     <!-- ===== DOWNLOAD BUTTON #2 (bottom) ===== -->
-    <button class="btn js-download" type="button">Download now</button>
+    <button class="btn js-download" type="button">Complete 1 offer to download</button>
   </div>
 </section>
 </main>
@@ -175,7 +181,7 @@ footer a{margin:0 8px}
 </footer>
 
 <!-- ===== STICKY MOBILE DOWNLOAD BUTTON #3 ===== -->
-<div class="bar"><button class="btn js-download" type="button">Download now</button></div>
+<div class="bar"><button class="btn js-download" type="button">Complete 1 offer to download</button></div>
 
 <!-- ======================================================================
   CONTENT LOCKER
